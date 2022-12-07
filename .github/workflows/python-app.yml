@@ -37,7 +37,7 @@ jobs:
   
   build-Docker:
     runs-on: ubuntu-latest
-    #We need to build the app first before building and pushing the dockerimage
+    #We need to build the app first before building and pushing the docker image
     needs: build 
     steps:
       -
@@ -54,7 +54,9 @@ jobs:
         uses: docker/setup-buildx-action@v2
       -
         name: Build and push
+        
         uses: docker/build-push-action@v3
+
         with:
           context: .
           file: ./Dockerfile
